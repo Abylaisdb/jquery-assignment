@@ -61,22 +61,26 @@
 <script>
 $(document).ready(function () {
 
-  let n = 2;
+  function nextNumber() {
+  let max = 0;
+  $("#list li").each(function () {
+    const num = parseInt($(this).text().replace("Item ", ""), 10);
+    if (num > max) max = num;
+  });
+  return max + 1;
+  }
 
   $("#appendBtn").click(function () {
-    n++;
-    $("#list").append("<li>Item " + n + "</li>");
+  $("#list").append("<li>Item " + nextNumber() + "</li>");
   });
 
   $("#prependBtn").click(function () {
-    n++;
-    $("#list").prepend("<li>Item " + n + "</li>");
+  $("#list").prepend("<li>Item " + nextNumber() + "</li>");
   });
 
-  $("#removeBtn").click(function () {
-    $("#list li:last").remove();
-  });
-
+$("#removeBtn").click(function () {
+  $("#list li:last").remove();
+});
   const images = [
     "https://picsum.photos/id/1015/600/360",
     "https://picsum.photos/id/1025/600/360",
