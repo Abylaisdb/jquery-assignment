@@ -54,6 +54,6 @@ An internet connection is required to load jQuery from the CDN.
 
 The project is published using GitHub Pages.
 
-**GitHub Pages:**
+**GitHub Pages:** https://abylaisdb.github.io/jquery-assignment/project.html
 
 **GitHub Repository:** https://github.com/Abylaisdb/jquery-assignment
