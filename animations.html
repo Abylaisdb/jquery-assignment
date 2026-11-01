@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Part 4 - Animations</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Part 4. Animations</h1>
+<section>
+  <h2>Task 8. Basic Animation</h2>
+  <button id="a8">Animate (size + position)</button>
+  <button id="r8">Reset</button>
+  <div class="stage"><div class="box" id="box8"></div></div>
+</section>
+<section>
+  <h2>Task 9. Sequential Animations</h2>
+  <button id="a9">Start sequence</button>
+  <div class="stage"><div class="box" id="box9"></div></div>
+</section>
+<section>
+  <h2>Task 10. Combined Animation</h2>
+  <button id="a10">Animate (opacity + size + movement)</button>
+  <button id="r10">Reset</button>
+  <div class="stage"><div class="box" id="box10"></div></div>
+</section>
+</main>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="common.js"></script>
+<script>
+$(document).ready(function () {
+  const start = { left: 10, top: 10, width: 50, height: 50, opacity: 1 };
+
+  $("#a8").click(function () {
+    $("#box8").animate({ width: "120px", height: "120px", left: "300px" }, 1000);
+  });
+  $("#r8").click(function () { $("#box8").stop().animate(start, 500); });
+
+  $("#a9").click(function () {
+    $("#box9").stop(true)
+      .animate({ left: "400px" }, 800)
+      .animate({ top: "180px" }, 800)
+      .animate({ width: "20px", height: "20px" }, 600)
+      .animate({ left: "10px", top: "10px", width: "50px", height: "50px" }, 800);
+  });
+
+  $("#a10").click(function () {
+    $("#box10").animate({ opacity: 0.4, width: "130px", height: "130px", left: "350px", top: "100px" }, 1500);
+  });
+  $("#r10").click(function () { $("#box10").stop().animate(start, 500); });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Part 2 - Effects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Part 2. jQuery Effects</h1>
+<section>
+  <h2>Task 2. Visibility Methods</h2>
+  <p id="para">This paragraph can be hidden and shown.</p>
+  <button id="hideBtn">Hide</button>
+  <button id="showBtn">Show</button>
+  <button id="toggleBtn">Toggle</button>
+</section>
+<section>
+  <h2>Task 3. Fade Methods</h2>
+  <img class="demo" id="fadeImg" src="https://picsum.photos/id/10/600/360" alt="Nature">
+  <button id="fadeInBtn">fadeIn</button>
+  <button id="fadeOutBtn">fadeOut</button>
+  <button id="fadeToggleBtn">fadeToggle</button>
+</section>
+<section>
+  <h2>Task 4. Slide Methods</h2>
+  <button id="upBtn">slideUp</button>
+  <button id="downBtn">slideDown</button>
+  <button id="slideToggleBtn">slideToggle</button>
+  <div id="panel">This is a collapsible panel. Any content can go here.</div>
+</section>
+</main>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="common.js"></script>
+<script>
+$(document).ready(function () {
+  $("#hideBtn").click(function () { $("#para").hide(); });
+  $("#showBtn").click(function () { $("#para").show(); });
+  $("#toggleBtn").click(function () { $("#para").toggle(); });
+
+  $("#fadeInBtn").click(function () { $("#fadeImg").fadeIn(800); });
+  $("#fadeOutBtn").click(function () { $("#fadeImg").fadeOut(800); });
+  $("#fadeToggleBtn").click(function () { $("#fadeImg").fadeToggle(800); });
+
+  $("#upBtn").click(function () { $("#panel").slideUp(500); });
+  $("#downBtn").click(function () { $("#panel").slideDown(500); });
+  $("#slideToggleBtn").click(function () { $("#panel").slideToggle(500); });
+});
+</script>
+</body>
+</html>

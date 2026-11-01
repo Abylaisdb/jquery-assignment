@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Part 5 - Mini Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Part 5. Mini Project: Accordion Menu</h1>
+<section>
+  <div class="acc-item">
+    <div class="acc-header">What is jQuery?</div>
+    <div class="acc-body">jQuery is a JavaScript library that simplifies DOM manipulation, event handling and animations.</div>
+  </div>
+  <div class="acc-item">
+    <div class="acc-header">Why use selectors?</div>
+    <div class="acc-body">Selectors let you find elements by ID, class, tag or attribute with short CSS-like syntax.</div>
+  </div>
+  <div class="acc-item">
+    <div class="acc-header">What are effects?</div>
+    <div class="acc-body">Effects such as show/hide, fade and slide make interfaces more dynamic with one line of code.</div>
+  </div>
+  <div class="acc-item">
+    <div class="acc-header">How does .animate() work?</div>
+    <div class="acc-body">.animate() changes numeric CSS properties gradually over a given time.</div>
+  </div>
+</section>
+</main>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="common.js"></script>
+<script>
+$(document).ready(function () {
+  $(".acc-header").click(function () {
+    const $body = $(this).next(".acc-body");
+    $(".acc-body").not($body).slideUp(300);
+    $body.slideToggle(300);
+  });
+});
+</script>
+</body>
+</html>

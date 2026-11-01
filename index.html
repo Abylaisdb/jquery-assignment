@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Part 1 - jQuery Basics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Part 1. Getting Started with jQuery</h1>
+<section>
+  <h2>Task 0. Setup</h2>
+  <p>jQuery is connected CDN. Open the browser console (F12) — it displays the "jQuery is ready!" message.</p>
+</section>
+<section>
+  <h2>Task 1. Selectors &amp; CSS</h2>
+  <h3 id="title">Heading (selection by ID)</h3>
+  <p class="note">Paragraph 1 (selection by class)</p>
+  <p class="note">Paragraph 2 (selection by class)</p>
+  <div id="tagDemo"><span>span 1</span> <span>span 2</span></div>
+  <br>
+  <button id="btnText">.text() by ID</button>
+  <button id="btnHtml">.html() by class</button>
+  <button id="btnCss">.css() by tag</button>
+  <button id="btnReset">Reset</button>
+</section>
+</main>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="common.js"></script>
+<script>
+$(document).ready(function () {
+  console.log("jQuery is ready!");
+
+  $("#btnText").click(function () {
+    $("#title").text("Text changed .text()");
+  });
+  $("#btnHtml").click(function () {
+    $(".note").html("<b>HTML changed</b>  <i>.html()</i>");
+  });
+  $("#btnCss").click(function () {
+    $("span").css({ color: "white", background: "#e8590c", padding: "4px 8px", "border-radius": "4px" });
+    $("#title").css("color", "#3b5bdb");
+  });
+  $("#btnReset").click(function () { location.reload(); });
+});
+</script>
+</body>
+</html>

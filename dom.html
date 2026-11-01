@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Part 3 - DOM Manipulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Part 3. DOM Manipulation</h1>
+
+  <section>
+    <h2>Task 5. Add &amp; Remove Elements</h2>
+    <ul id="list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+
+    <button id="appendBtn">Add Item (append)</button>
+    <button id="prependBtn">Add Item (prepend)</button>
+    <button id="removeBtn">Remove Item</button>
+  </section>
+
+  <section>
+    <h2>Task 6. Modifying Attributes</h2>
+    <img class="demo" id="attrImg"
+         src="https://picsum.photos/id/1015/600/360"
+         alt="Demo image">
+
+    <button id="srcBtn">Change image src</button>
+
+    <p>
+      <a id="myLink" href="https://jquery.com" target="_blank">
+        Link: jquery.com
+      </a>
+    </p>
+
+    <button id="hrefBtn">Change link href</button>
+  </section>
+
+  <section>
+    <h2>Task 7. Form Interaction</h2>
+
+    <form id="userForm">
+      <label for="nameInput">Name:</label>
+      <input type="text" id="nameInput" placeholder="Enter your name">
+
+      <label for="emailInput">Email:</label>
+      <input type="email" id="emailInput" placeholder="Enter your email">
+    </form>
+
+    <p>Name: <b id="outName"></b></p>
+    <p>Email: <b id="outEmail"></b></p>
+  </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="common.js"></script>
+
+<script>
+$(document).ready(function () {
+
+  let n = 2;
+
+  $("#appendBtn").click(function () {
+    n++;
+    $("#list").append("<li>Item " + n + "</li>");
+  });
+
+  $("#prependBtn").click(function () {
+    n++;
+    $("#list").prepend("<li>Item " + n + "</li>");
+  });
+
+  $("#removeBtn").click(function () {
+    $("#list li:last").remove();
+  });
+
+  const images = [
+    "https://picsum.photos/id/1015/600/360",
+    "https://picsum.photos/id/1025/600/360",
+    "https://picsum.photos/id/1043/600/360"
+  ];
+
+  let i = 0;
+
+  $("#srcBtn").click(function () {
+    i = (i + 1) % images.length;
+    $("#attrImg").attr("src", images[i]);
+  });
+
+  let toggled = false;
+
+  $("#hrefBtn").click(function () {
+    toggled = !toggled;
+
+    const url = toggled
+      ? "https://api.jquery.com"
+      : "https://jquery.com";
+
+    $("#myLink")
+      .attr("href", url)
+      .text("Link: " + url.replace("https://", ""));
+  });
+
+  $("#nameInput").on("input", function () {
+    $("#outName").text($(this).val());
+  });
+
+  $("#emailInput").on("input", function () {
+    $("#outEmail").text($(this).val());
+  });
+
+});
+</script>
+</body>
+</html>
